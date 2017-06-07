@@ -1,5 +1,11 @@
 //Name: Jason and Sachi
 //Author: January 26 2016
+import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.io.*;
 import java.io.File;
 import java.io.IOException;
@@ -41,17 +47,26 @@ public class ArrayLibrary  {
     return - 1; //If it can not find what the user wants to search then it returns -1
   }
   
-  public static void uploadFile (String inFile, StudentRecord array []) //method to break the line in the student txt file
+  public static void uploadFile (String inFile, StudentRecord array [],int lines) //method to break the line in the student txt file
   {
     try
     { 
-      BufferedReader fr = new BufferedReader(new FileReader(inFile)); //Opens the file
-      
-      for (int i = 0; i < array.length; i++)
-      {
-        array[i].breaker(fr.readLine()); //Breaks the lines into the corresponding info
+      BufferedReader br = new BufferedReader(new FileReader(inFile));//opens file
+      String line = br.readLine();
+      String studentInfo = "";
+      System.out.println(lines);
+      for (int i = 0; i <= lines; i++)
+      { 
+        line = br.readLine();
+        System.out.println(line);
+        studentInfo = studentInfo + line + " ";
+        if (line.indexOf("JOSH_CROZIER,F") != -1){
+          System.out.println(studentInfo);
+          array[i].breaker(studentInfo); //Breaks the lines into the corresponding info
+          studentInfo = "";
+        }
       }
-      fr.close (); //Closes the file
+      br.close (); //Closes the file
     }
     catch (Exception e)
     {
@@ -83,18 +98,24 @@ public class ArrayLibrary  {
     }
     return array;
   }
-  public static int countLines (String file) //Count the number of lines in a txt file
-  {
-    int size = 0;
+  public static int [] countLines (String file){ //Count the number of lines in a txt file
+  
+    int size = 0, student = 0;
+
     try
     { 
-      BufferedReader fr = new BufferedReader(new FileReader(file));//opens file
-      while (fr.readLine() != null)
+      BufferedReader br = new BufferedReader(new FileReader(file));//opens file
+      String line = br.readLine();
+      while ((line = br.readLine()) != null && !line.isEmpty())
       { 
-        size++; //Adding 1 to size if the string is not null
+        size ++;
+        if (line.indexOf("JOSH_CROZIER,F") != -1){
+          student++; //Adding 1 to size if the string is not null
+        }
       }
-      fr.close();
-      return size; //Returning the size of the array
+      br.close();
+      int[] A = {size,student};
+      return A; //Returning the size of the array
     }
     catch (Exception e)
     {
@@ -102,7 +123,8 @@ public class ArrayLibrary  {
       JOptionPane.showMessageDialog (null,"Error: 3");
     }
     
-    return size;
+    int[] A = {size,student};
+    return A;
   }
   public static void downFile (String outFile,String array []) 
   {
@@ -423,15 +445,15 @@ public class ArrayLibrary  {
     StudentRecord student [];
     CheckPeriod check = new CheckPeriod ();
     
-    int size = ArrayLibrary.countLines("TimeTables-Oct2015.txt");//size of array is equal to the # of lines in the txt document
+    int [] size = ArrayLibrary.countLines("TT-SummaryJune2017.csv");//size of array is equal to the # of lines in the txt document
     
-    student = new StudentRecord[size];
+    student = new StudentRecord[size[1]];
     
     for (int i = 0; i < student.length; i++){
       student[i] = new StudentRecord();
     }
     
-    ArrayLibrary.uploadFile("TimeTables-Oct2015.txt",student);//opens the txt file
+    ArrayLibrary.uploadFile("TT-SummaryJune2017.csv",student,size[0]);//opens the txt file
     
     String studentNum = JOptionPane.showInputDialog (null, "Enter a student number ('533987')");//declares studentNum as a string and allows the user to enter what student number they want
     int num = ArrayLibrary.linearSearch (student, studentNum);//searches for the student info using the student number
@@ -456,7 +478,7 @@ public class ArrayLibrary  {
       }
       student[num].setPeriod (period);//sets the period based on what the user entered for period
       student[num].setSemester (semester);//sets the semester based on what the user entered for semester
-      ArrayLibrary.uploadFile("TimeTables-Oct2015.txt",student);//opens the txt file containing the student info
+      ArrayLibrary.uploadFile("TT-SummaryJune2017.csv",student,size[0]);//opens the txt file containing the student info
       
       String array []; //Creating an array
       array = student[num].getCourses(); //Getting the all the courses for the 2nd semestter

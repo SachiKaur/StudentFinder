@@ -10,6 +10,9 @@
  *
  * @version 1.00 2016/1/4
  */
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.Arrays;
 import javax.swing.JTextArea;
 public class StudentRecord {
@@ -84,6 +87,7 @@ public class StudentRecord {
   
   public void breaker (String str) //Breaking the string that the arraylibrary sends
   { 
+    String name = str[string.indexOf(token, j + 1);
     String string = str.substring (74); //Takes anything away that is not necessary for the program to run so the string starts at the the 74 character
     String txt [];
     txt = string.split ("\t"); //spliting the string into an array where ever there is a tab
@@ -131,10 +135,8 @@ public class StudentRecord {
   public static void main(String[] args) {  //Self testing
      
     StudentRecord student []; //Creating an array for student record
-    
-    int size = ArrayLibrary.countLines("TimeTables-Oct2015.txt"); //Determine how big the array should be depending on how many lines there are in 
-    
-    student = new StudentRecord[size]; // Declaring the array
+    int [] size = ArrayLibrary.countLines("TT-SummaryJune2017.csv"); //Determine how big the array should be depending on how many lines there are in 
+    student = new StudentRecord[size[1]]; // Declaring the array
     
     for (int i = 0; i < student.length; i++){ //Initializing the array
       student[i] = new StudentRecord();
@@ -142,7 +144,8 @@ public class StudentRecord {
     String array []; //Creating an array
     String teacherArray [];
     student[0].setSemester (2); //Setting the semester to the 2nd semester
-    ArrayLibrary.uploadFile("TimeTables-Oct2015.txt",student);  //Reading and and storing the info into studentRecord
+    System.out.println("hi");
+    ArrayLibrary.uploadFile("TT-SummaryJune2017.csv",student,size[0]);  //Reading and and storing the info into studentRecord
     array = student[0].getCourses(); //Getting the all the courses for the 2nd semestter
     teacherArray = student[0].getTeachers();
 

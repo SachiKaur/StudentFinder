@@ -1,0 +1,150 @@
+STU_NAME,PUPIL_NUMBER,BIRTH_DATE,DIPLOMA_NAME,GRADE,PHONE,COUNCELLOR_ID,NAME,CP_SEM1_PER1,CP_SEM1_PER2,CP_SEM1_PER3,CP_SEM1_PER4,CP_SEM1_PER5,CP_SEM1_PER6,CP_SEM2_PER1,CP_SEM2_PER2,CP_SEM2_PER3,CP_SEM2_PER4,CP_SEM2_PER5,CP_SEM2_PER6,CP_CREDITS,CP_HOME_FORM,CF_1,CREATE_DATE,DESCRIPTION,EXTRACT_VERSION,USER_NAME,EXTRACT_TYPE
+"Last, First1",594697,37343,OSS,S1,(416)500-8459,369218,"MacGregor, L","FSF1P0A
+Canellari, 
+222","CGC1P0B
+Steele, N
+315",,"PPL1OMD
+Lad, S
+GYA","SNC1P0B
+Trasolini, 
+211",,"BTT1O0B
+Bains, J
+102","ENG1P0C
+Smith, C
+306","GLS1O0H
+Barker, N
+112",,"MFM1P0D
+Perko, M
+204",,4,1B2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First2",845308,37368,OSS,S1,(416)500-8460,369218,"MacGregor, L","GLS1O9A
+Van den Hen
+204","PPL1OMB
+Kudu, Matth
+GYC","CGC1PLA
+Gervasio, A
+317",,"ESLBO0A
+Singh, S
+108",,"ESLCO0B
+Nijjar, R
+108","MFM1P9A
+Van den Hen
+204","SNC1P0E
+Kreamer, Am
+211",,"AVI2O0D
+Leichnitz, 
+117",,4,2R2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First3",845304,36819,OSS,S2,(416)500-8461,369218,"MacGregor, L","ESLDO0C
+Nijjar, R
+108","MFM1P0A
+Ponzi, D
+205",,"CHV2OLA
+Raykha, J
+311","SNC2P0A
+Lee, K
+213",,"AMU2O0A
+Hamilton, D
+110","MFM2P0F
+Wong, Q
+103",,"CHC2PLA
+Gervasio, A
+319","ESLEO0B
+Nijjar, R
+108",,12,2C2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First4",565606,37112,OSS,S2,(416)500-8462,369218,"MacGregor, L","ENG2D0A
+Shanahan, K
+309","CHV2O0D
+Berry, K
+318",,"SNC2D0E
+Ellis, C
+215","CHC2D0E
+Nirwal, H
+314",,"FSF2D0C
+Canellari, 
+224","MPM2D0J
+Cheng, G
+208","PAF2OFB
+Kovarsky, A
+WR",,"AVI2O0D
+Leichnitz, 
+117",,12,1I2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First5",592332,37379,OSS,S1,(416)500-8463,369218,"MacGregor, L","FSF1P0A
+Canellari, 
+222","GLS1O9B
+Van den Hen
+204",,"PPL1OMD
+Lad, S
+GYA","SNC1P0B
+Trasolini, 
+211",,"MFM1P9B
+Van den Hen
+204","CGC1P0E
+Steele, N
+315",,"BTT1O0C
+Liapis, A
+102","ENG1P0E
+Vickery, J
+308",,4,1M2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First6",606013,36224,OSS,S4,(416)500-8464,369218,"MacGregor, L","SPH4U0A
+Nelson, K
+216",,"MHF4U0E
+Wong, Q
+210",,"SCH4U0B
+McNally, D
+219",,"TEJ4M0B
+Rai, K
+124","MCV4U0A
+Tudhope, D
+203",,"ENG4U0H
+Vickery, J
+308","FIF4U0B
+Lake, M
+225",,27,3E2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First7",570962,35969,OSS,S4,(416)500-8465,369218,"MacGregor, L",,"MAP4C0B
+Sahota, K
+207",,"TFJ4C0A
+Wilson, E
+126","PAF4OFA
+Bowen, S
+109A",,"CGG3O0A
+Bukvic, M
+308","CLN4C0B
+Berwick, T
+313","GLE4O0D
+Lal, S
+103",,"ENG4C0F
+Meimaris, I
+307",,27,3C2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First8",867792,37547,OSS,S1,(416)500-8466,369218,"MacGregor, L","ENG1D0A
+Fernandes, 
+P1","GLS1O0B
+Barker, N
+112","SNC1D0C
+Dave, D
+214",,"PPL1OFC
+Squire-Smit
+GYB",,"MPM1D0F
+Perko, M
+206","FSF1D0F
+Ooi, Y
+223",,"AVI1O0C
+Copeland, S
+118","CGC1D0I
+Miller, M
+317",,4,1P2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
+"Last, First9",536031,36840,OSS,S3,(416)500-8467,369218,"MacGregor, L","ENG3U0A
+Smith, C
+306","SPH3U0B
+Dave, D
+216","TEJ3M0A
+Rai, K
+124",,"SBI3U0C
+Cedrone, A
+217",,"TDJ3M0B
+Khang, H
+121","HSP3U0C
+Kinkead, M
+311",,"MCR3U0E
+Ponzi, D
+205","SCH3U0D
+McNally, D
+219",,21,3R2,0,42892,Students currently enrolled at David Suzuki Secondary School,SISRpts,JOSH_CROZIER,F
