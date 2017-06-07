@@ -87,39 +87,31 @@ public class StudentRecord {
   
   public void breaker (String str) //Breaking the string that the arraylibrary sends
   { 
-    String name = str[string.indexOf(token, j + 1);
-    String string = str.substring (74); //Takes anything away that is not necessary for the program to run so the string starts at the the 74 character
-    String txt [];
-    txt = string.split ("\t"); //spliting the string into an array where ever there is a tab
-    studentNumber = (txt [7]).substring (0,6); //sets the studentNumber
-    studentName = (txt [14]); //sets the studentName
-    //System.out.println (txt[11]);
-    int num [] = {0,10,11,12,1,3,4,5,6,8}; //The order in which the subjects are in from semester 1 period 1 to semester 2 period 5
-    int x = 0; 
-    
-    if (semester != 1) //Determing if the semester is 1 or 2
-    {
-      x = 5; 
+    studentName  = str.substring(1,ArrayLibrary.nthOccurence(str,",",2) - 1);
+    studentNumber = str.substring(ArrayLibrary.nthOccurence(str,",",2) + 1, ArrayLibrary.nthOccurence(str,",",2) + 7);
+    //System.out.println(studentName + " " + studentNumber);
+    String s1 = (str.substring(ArrayLibrary.nthOccurence(str,",",10) + 1,ArrayLibrary.nthOccurence(str,",",18))).replaceAll("[^A-Za-z0-9- ]", " ");
+    String s2 = (str.substring(ArrayLibrary.nthOccurence(str,",",19) + 1,ArrayLibrary.nthOccurence(str,",",28))).replaceAll("[^A-Za-z0-9- ]", " ");
+    //System.out.println(s1);
+    String s = s1;
+    if (semester != 1){
+      s = s2;
     }
     
-    for (int i = 0; i < NUMOFPERIODS; i++) // i is less than the number of periods there are in a semester
-    {   
-      String temp = txt [num[x]]; //Getting the length of the temp to see if its a tab or set of words
-      int number = temp.length();
-      
-      if (number == 0) //if its a tab then its either a lunch or a spare
-      {
-        course [i] = "Lunch or Spare"; 
-        teacher [i] = "N/A";
+    String [] info = (s).split(" ");
+    int j = 0;
+    for (int i = 1; i < info.length; i++){
+      if (info[i].length() > 0){
+        course [j] =  info[i];
+        teacher [j] = info[i+1] + ", " + info[i+3];
+        i = i + 6;
       }
-      else //If not is a subject
-      {
-        course [i] =  (txt[num[x]]).substring (0,7);
-        teacher [i] = (txt[num[x]]).substring (7);
+      else {
+        course [j] = "Lunch or Spare"; 
+        teacher [j] = "N/A";
       }
-      x++;
-    }
-    
+      j++;
+    } 
   }
   
   public String getStudentNumber () //Returns the student number
@@ -135,7 +127,7 @@ public class StudentRecord {
   public static void main(String[] args) {  //Self testing
      
     StudentRecord student []; //Creating an array for student record
-    int [] size = ArrayLibrary.countLines("TT-SummaryJune2017.csv"); //Determine how big the array should be depending on how many lines there are in 
+    int [] size = ArrayLibrary.countLines("Harsh.csv"); //Determine how big the array should be depending on how many lines there are in 
     student = new StudentRecord[size[1]]; // Declaring the array
     
     for (int i = 0; i < student.length; i++){ //Initializing the array
@@ -144,15 +136,13 @@ public class StudentRecord {
     String array []; //Creating an array
     String teacherArray [];
     student[0].setSemester (2); //Setting the semester to the 2nd semester
-    System.out.println("hi");
-    ArrayLibrary.uploadFile("TT-SummaryJune2017.csv",student,size[0]);  //Reading and and storing the info into studentRecord
+    ArrayLibrary.uploadFile("Harsh.csv",student,size[0]);  //Reading and and storing the info into studentRecord
     array = student[0].getCourses(); //Getting the all the courses for the 2nd semestter
     teacherArray = student[0].getTeachers();
 
     for (int i = 0; i < array.length; i++)
     {
-      System.out.println(array [i]); //Showing the courses in 2nd semester
-      System.out.println(teacherArray [i]); //Showing the courses in 2nd semester
+      System.out.println(array [i] + " " + teacherArray [i]); //Showing the courses and teachers in 2nd semester
     }
     
     

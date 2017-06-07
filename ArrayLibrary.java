@@ -46,24 +46,31 @@ public class ArrayLibrary  {
     }
     return - 1; //If it can not find what the user wants to search then it returns -1
   }
-  
+  public static int nthOccurence(String str, String substr, int n) {
+    int pos = str.indexOf(substr);
+    while (--n > 0 && pos != -1)
+        pos = str.indexOf(substr, pos + 1);
+    return pos;
+}
   public static void uploadFile (String inFile, StudentRecord array [],int lines) //method to break the line in the student txt file
   {
+    int j = 0;
     try
     { 
       BufferedReader br = new BufferedReader(new FileReader(inFile));//opens file
       String line = br.readLine();
       String studentInfo = "";
-      System.out.println(lines);
       for (int i = 0; i <= lines; i++)
       { 
         line = br.readLine();
-        System.out.println(line);
         studentInfo = studentInfo + line + " ";
         if (line.indexOf("JOSH_CROZIER,F") != -1){
-          System.out.println(studentInfo);
-          array[i].breaker(studentInfo); //Breaks the lines into the corresponding info
-          studentInfo = "";
+          if (j <= array.length) {
+            //System.out.println(studentInfo);
+            array[j].breaker(studentInfo); //Breaks the lines into the corresponding info
+            studentInfo = "";
+            j++;
+          }
         }
       }
       br.close (); //Closes the file
@@ -445,7 +452,7 @@ public class ArrayLibrary  {
     StudentRecord student [];
     CheckPeriod check = new CheckPeriod ();
     
-    int [] size = ArrayLibrary.countLines("TT-SummaryJune2017.csv");//size of array is equal to the # of lines in the txt document
+    int [] size = ArrayLibrary.countLines("Harsh.csv");//size of array is equal to the # of lines in the txt document
     
     student = new StudentRecord[size[1]];
     
@@ -453,10 +460,11 @@ public class ArrayLibrary  {
       student[i] = new StudentRecord();
     }
     
-    ArrayLibrary.uploadFile("TT-SummaryJune2017.csv",student,size[0]);//opens the txt file
+    ArrayLibrary.uploadFile("Harsh.csv",student,size[0]);//opens the txt file
     
     String studentNum = JOptionPane.showInputDialog (null, "Enter a student number ('533987')");//declares studentNum as a string and allows the user to enter what student number they want
     int num = ArrayLibrary.linearSearch (student, studentNum);//searches for the student info using the student number
+    System.out.println(num + " " + student + " " + studentNum + " " + student[num]);
     if (num == -1)//if num is equal to -1
     {
       JOptionPane.showMessageDialog (null, "Student Could Not Be Found"); //displays student could not be found
@@ -478,15 +486,15 @@ public class ArrayLibrary  {
       }
       student[num].setPeriod (period);//sets the period based on what the user entered for period
       student[num].setSemester (semester);//sets the semester based on what the user entered for semester
-      ArrayLibrary.uploadFile("TT-SummaryJune2017.csv",student,size[0]);//opens the txt file containing the student info
+      ArrayLibrary.uploadFile("Harsh.csv",student,size[0]);//opens the txt file containing the student info
       
       String array []; //Creating an array
       array = student[num].getCourses(); //Getting the all the courses for the 2nd semestter
       
-      for (int i = 0; i < array.length; i++)
-      {
-        System.out.println(array [i]); //Showing the courses in 2nd semester
-      }
+      // for (int i = 0; i < array.length; i++)
+      // {
+      //   System.out.println(array [i]); //Showing the courses in 2nd semester
+      // }
       
       String name = student[num].getStudentName ();//declares name as a string and the name is getStudentName method
       String course = check.checkDay(student[num]);//declares course as a string and make it equal to check.checkday(with student[num]) as input 
