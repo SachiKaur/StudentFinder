@@ -142,7 +142,7 @@ public class StudentRecord {
 
     for (int i = 0; i < array.length; i++)
     {
-      System.out.println(array [i] + " " + teacherArray [i]); //Showing the courses and teachers in 2nd semester
+      //System.out.println(array [i] + " " + teacherArray [i]); //Showing the courses and teachers in 2nd semester
     }
     
     

@@ -66,14 +66,19 @@ public class StudentInput extends JFrame implements ActionListener {
       JOptionPane.showMessageDialog (null,"Error: 11");
     }
     
-    student = new StudentRecord [(ArrayLibrary.countLines(ArrayLibrary.getTextFileName()))]; //Setting the size of the array
+    int [] size = (ArrayLibrary.countLines(ArrayLibrary.getTextFileName()));
+    student = new StudentRecord [size[1]]; //Setting the size of the array
     
     for (int i = 0; i < student.length; i++){
       student[i] = new StudentRecord(); //Creating an object
     }
     
-    ArrayLibrary.uploadFile(ArrayLibrary.getTextFileName(),student); //Putting all the student infomation into each element
-    
+    ArrayLibrary.uploadFile(ArrayLibrary.getTextFileName(),student,size[0]); //Putting all the student infomation into each element
+    for (int i = 0; i < student.length; i++){
+      System.out.println(student[i].getStudentNumber());
+    }
+
+    System.out.println(ArrayLibrary.getTextFileName());
     btnHelp.setBounds (1300,0,50,50); //Setting where the buttons are located
     btnHelp.setBorder(BorderFactory.createEmptyBorder());
     btnHelp.setContentAreaFilled(false);

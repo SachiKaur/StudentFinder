@@ -38,8 +38,8 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
     super ("StudentFinder"); // Jframe's header
     gui = new StudentInput ();
     gui.setVisible(false);
-    int size = ArrayLibrary.countLines(ArrayLibrary.getTextFileName()); //Getting how many students are in the school
-    student = new StudentRecord[size]; //Setting the size of the StudentRecord array
+    int [] size = ArrayLibrary.countLines(ArrayLibrary.getTextFileName()); //Getting how many students are in the school
+    student = new StudentRecord[size[1]]; //Setting the size of the StudentRecord array
     check = new CheckPeriod (); // Creating an object for CheckPeriod
     for (int i = 0; i < student.length; i++)
     {
@@ -47,7 +47,7 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
     }
     ArrayLibrary.setInfo (s,d,p,student); //Setting the period, semester and day 
     //System.out.println ("Period:" + p);
-    ArrayLibrary.uploadFile(ArrayLibrary.getTextFileName(),student); //Putting each student's info into each element of the student record array
+    ArrayLibrary.uploadFile(ArrayLibrary.getTextFileName(),student,size[0]); //Putting each student's info into each element of the student record array
     se = s - 1;
     pe = p - 1;
     da = d - 1;

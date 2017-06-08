@@ -36,7 +36,7 @@ public class ArrayLibrary  {
   private static WritableWorkbook wworkbook;
   private static String title;
   public static int linearSearch (StudentRecord array [], String searchKey) //Asks for array from LoginRecord and what the user wants to search
-  {
+  { 
     for (int i = 0; i< array.length; i++)
     {
       if ((array[i].getStudentNumber()).compareToIgnoreCase(searchKey) == 0) //If what the user want to search is the same as that element than it returns where it is in the array
@@ -60,16 +60,22 @@ public class ArrayLibrary  {
       BufferedReader br = new BufferedReader(new FileReader(inFile));//opens file
       String line = br.readLine();
       String studentInfo = "";
-      for (int i = 0; i <= lines; i++)
+      for (int i = 0; i < lines; i++)
       { 
+        //System.out.println(line);
         line = br.readLine();
         studentInfo = studentInfo + line + " ";
-        if (line.indexOf("JOSH_CROZIER,F") != -1){
+        if (nthOccurence(line,"JOSH_CROZIER,F",1) != -1){
+          //System.out.println("Comes here");
           if (j <= array.length) {
             //System.out.println(studentInfo);
+            //System.out.println("Comes here!");
             array[j].breaker(studentInfo); //Breaks the lines into the corresponding info
+            //System.out.println("Comes here!!");
             studentInfo = "";
+            //System.out.println("Comes here!!!");
             j++;
+            //System.out.println("Comes here!!!!");
           }
         }
       }
@@ -463,6 +469,7 @@ public class ArrayLibrary  {
     ArrayLibrary.uploadFile("Harsh.csv",student,size[0]);//opens the txt file
     
     String studentNum = JOptionPane.showInputDialog (null, "Enter a student number ('533987')");//declares studentNum as a string and allows the user to enter what student number they want
+    System.out.println("Comes here");
     int num = ArrayLibrary.linearSearch (student, studentNum);//searches for the student info using the student number
     System.out.println(num + " " + student + " " + studentNum + " " + student[num]);
     if (num == -1)//if num is equal to -1
