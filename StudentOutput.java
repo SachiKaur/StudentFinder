@@ -72,15 +72,14 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
       JOptionPane.showMessageDialog (null,"Error: 13");
     }
     
-    next.setBounds (1100,370,86,88); //Setting the location of the next button
+    next.setBounds (1103,475,86,88); //Setting the location of the next button
     next.setBorder (BorderFactory.createEmptyBorder());
-    back.setBounds (950,370,86,88); //Setting the location of the next button
+    back.setBounds (973,475,86,88); //Setting the location of the next button
     back.setBorder (BorderFactory.createEmptyBorder());
     btnEnter = new JButton ("Save As Excel File"); // Setting the location for the enter button
-    btnEnter.setBounds (925,500,300,50);
+    btnEnter.setBounds (935,600,300,50);
     home.setBounds (1300,0,50,50); //Setting the location of the next button
     home.setBorder (BorderFactory.createEmptyBorder());
-    
     try
     {
       Font reisenberg = Font.createFont (Font.TRUETYPE_FONT,this.getClass().getClassLoader().getResourceAsStream("Reisenberg.otf")); //Creating the font and putting it into the jar file
@@ -107,21 +106,21 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
     studentNum = ArrayLibrary.uploadFile ("StudentNumbers.txt"); //Getting the numbers that the user wants
     
     lblPic = new JLabel (); //Initializing JLabels and setting into a specific spots
-    lblPic.setBounds(500,245,320,400);
+    lblPic.setBounds(985,150,320,400);
     
     lblStudentName = new JLabel ();
     lblStudentName.setBounds(100,245,500,20);
     
     lblPeriod = new JLabel ();
-    lblPeriod.setBounds(100,270,600,20);
+    lblPeriod.setBounds(100,300,600,20);
     lblPeriod1 = new JLabel ();
-    lblPeriod1.setBounds(100,295,600,20);
+    lblPeriod1.setBounds(100,335,600,20);
     lblPeriod2 = new JLabel ();
-    lblPeriod2.setBounds(100,320,600,20);
+    lblPeriod2.setBounds(100,370,600,20);
     lblPeriod3 = new JLabel ();
-    lblPeriod3.setBounds(100,345,600,20);
+    lblPeriod3.setBounds(100,405,600,20);
     lblPeriod4 = new JLabel ();
-    lblPeriod4.setBounds(100,370,600,20);
+    lblPeriod4.setBounds(100,440,600,20);
     
     lblStudentName.setForeground(Color.WHITE); //Making the JLabels white
     lblPeriod.setForeground(Color.WHITE);
@@ -131,6 +130,13 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
     lblPeriod4.setForeground(Color.WHITE);
     
     iconimage = new ImageIcon(); //initializing image Icon
+
+    lblStudentName.setFont (lblStudentName.getFont ().deriveFont (20.0f));
+    lblPeriod.setFont (lblPeriod.getFont ().deriveFont (20.0f));
+    lblPeriod1.setFont (lblPeriod1.getFont ().deriveFont (20.0f));
+    lblPeriod2.setFont (lblPeriod2.getFont ().deriveFont (20.0f));
+    lblPeriod3.setFont (lblPeriod3.getFont ().deriveFont (20.0f));
+    lblPeriod4.setFont (lblPeriod4.getFont ().deriveFont (20.0f));
     
     showStudentInfo (x); //Showing the first students info
     x++;
@@ -272,7 +278,7 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
     g = bi.createGraphics();
     iconimage.paintIcon(null, g, 0,0);
     g.dispose(); //Disposing of graphics
-    resizedimage= resize(bi,320, 400);
+    resizedimage= resize(bi,200, 200);
     resizedicon=new ImageIcon(resizedimage); //Using this method
     lblPic.setIcon(resizedicon); //Setting the Pic JLabel as the picture
     }

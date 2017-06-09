@@ -153,7 +153,7 @@ public class StudentRecord {
     StudentRecord student []; //Creating an array for student record
     int [] size = ArrayLibrary.countLines("TT-SummaryJune2017.csv"); //Determine how big the array should be depending on how many lines there are in 
     student = new StudentRecord[size[1]]; // Declaring the array
-    System.out.println(size[1] + " " + size[0]);
+    //System.out.println(size[1] + " " + size[0]);
     
     for (int i = 0; i < student.length; i++){ //Initializing the array
       student[i] = new StudentRecord();
@@ -167,7 +167,7 @@ public class StudentRecord {
 
     for (int i = 0; i < array.length; i++)
     {
-      System.out.println(array [i] + " " + teacherArray [i]); //Showing the courses and teachers in 2nd semester
+      //System.out.println(array [i] + " " + teacherArray [i]); //Showing the courses and teachers in 2nd semester
     }
     
     

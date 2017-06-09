@@ -75,10 +75,10 @@ public class StudentInput extends JFrame implements ActionListener {
     
     ArrayLibrary.uploadFile(ArrayLibrary.getTextFileName(),student,size[0]); //Putting all the student infomation into each element
     for (int i = 0; i < student.length; i++){
-      System.out.println(student[i].getStudentNumber());
+      //System.out.println(student[i].getStudentNumber());
     }
 
-    System.out.println(ArrayLibrary.getTextFileName());
+    // System.out.println(ArrayLibrary.getTextFileName());
     btnHelp.setBounds (1300,0,50,50); //Setting where the buttons are located
     btnHelp.setBorder(BorderFactory.createEmptyBorder());
     btnHelp.setContentAreaFilled(false);

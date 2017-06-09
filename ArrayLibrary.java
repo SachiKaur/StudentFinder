@@ -88,7 +88,7 @@ public class ArrayLibrary  {
   }
   public static String [] uploadFile (String inFile) //method to set the size of the array
   {
-    System.out.println ("Upload Call");
+    //System.out.println ("Upload Call");
     String [] array = null;
     try
     { 
@@ -99,7 +99,7 @@ public class ArrayLibrary  {
       for (int i = 0; i < array.length; i++)
       {
         array[i] = fr.readLine(); //Reads each line from the txt file
-        System.out.println (array[i]);
+        //System.out.println (array[i]);
       }
       fr.close (); //Closes the file
     }
@@ -183,7 +183,7 @@ public class ArrayLibrary  {
       sheetname = text[2];
       txtFileName = text[3];
       title = text[4];
-      System.out.println (filename + "," + sheetname);
+      //System.out.println (filename + "," + sheetname);
       createFile (text[1],text[2],0);
       fr.close (); //Closes the file
     }
@@ -196,12 +196,12 @@ public class ArrayLibrary  {
   }
   public static String getFileName ()//method to get the name of the file
   {
-    System.out.println (filename);
+    //System.out.println (filename);
     return filename;
   }
   public static String getSheetName () //method to get the name of the sheet
   {
-    System.out.println (sheetname);
+    //System.out.println (sheetname);
     return sheetname;
   }
   public static String getTextFileName ()
@@ -323,8 +323,8 @@ public class ArrayLibrary  {
       wsheet.addCell(plabel3);//adds the label for period
       Label plabel4 = new Label(x + 1, y + 4,period4 + ":" + teacher4);//creates label for period
       wsheet.addCell(plabel4);//adds the label for period
-      System.out.println ("IT COMES HERE"); 
-      System.out.println (filename + "," + sheetname + "," + studentname + "," + period + "," + picture +  "," + x + "," + y + "," + periodNum);//displays information
+      //System.out.println ("IT COMES HERE"); 
+      //System.out.println (filename + "," + sheetname + "," + studentname + "," + period + "," + picture +  "," + x + "," + y + "," + periodNum);//displays information
       
       File imageFile = new File(directory + picture + ".JPG"); //opens picture and reads the picture file
       BufferedImage input = ImageIO.read(imageFile);
@@ -416,8 +416,8 @@ public class ArrayLibrary  {
       wsheet.addCell(slabel);//adds the label fo student number
       Label plabel = new Label(x + 1, y ,period + ":" + teacher,uborder);//creates label for period
       wsheet.addCell(plabel);//adds the label for period
-      System.out.println ("IT COMES HERE"); 
-      System.out.println (filename + "," + sheetname + "," + studentname + "," + period + "," + picture +  "," + x + "," + y + "," + periodNum);//displays information
+      //System.out.println ("IT COMES HERE"); 
+      //System.out.println (filename + "," + sheetname + "," + studentname + "," + period + "," + picture +  "," + x + "," + y + "," + periodNum);//displays information
       
       File imageFile = new File(directory + picture + ".JPG"); //opens picture and reads the picture file
       BufferedImage input = ImageIO.read(imageFile);
@@ -468,9 +468,9 @@ public class ArrayLibrary  {
     ArrayLibrary.uploadFile("Harsh.csv",student,size[0]);//opens the txt file
     
     String studentNum = JOptionPane.showInputDialog (null, "Enter a student number ('533987')");//declares studentNum as a string and allows the user to enter what student number they want
-    System.out.println("Comes here");
+    //System.out.println("Comes here");
     int num = ArrayLibrary.linearSearch (student, studentNum);//searches for the student info using the student number
-    System.out.println(num + " " + student + " " + studentNum + " " + student[num]);
+    //System.out.println(num + " " + student + " " + studentNum + " " + student[num]);
     if (num == -1)//if num is equal to -1
     {
       JOptionPane.showMessageDialog (null, "Student Could Not Be Found"); //displays student could not be found
@@ -504,7 +504,7 @@ public class ArrayLibrary  {
       
       String name = student[num].getStudentName ();//declares name as a string and the name is getStudentName method
       String course = check.checkDay(student[num]);//declares course as a string and make it equal to check.checkday(with student[num]) as input 
-      System.out.println (course);//displays the course
+      //System.out.println (course);//displays the course
       ArrayLibrary.createFile ("Student.xls","Kappa",0);//creastes the file 
       //ArrayLibrary.excelhah("Student.xls","Kappa",name,course,studentNum,0,1,period,"null");//calls the excel hah 
     }
