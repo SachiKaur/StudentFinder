@@ -106,7 +106,7 @@ public class CheckPeriod
     student[0].setPeriod (period);//method to set period as the period the user enters
     student[0].setDay (day);//method to set date as the date the user enters
     student[0].setSemester (semester);//method to set semester as the semester the user enters
-    ArrayLibrary.uploadFile("TimeTables-Oct2015.txt",student);//the users finds the course from the txt file using the information above
+    ArrayLibrary.uploadFile("TimeTables-Oct2015.txt",student,1);//the users finds the course from the txt file using the information above
     
     System.out.println("Period: " + period);//displays the period
     System.out.println("Semester: " + semester);//displays the semeseter

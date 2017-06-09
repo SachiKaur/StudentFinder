@@ -454,7 +454,7 @@ public class ArrayLibrary  {
     }
   }
   public static void main(String[] args) {  //Self Testing
-    StudentRecord student [];
+    /*StudentRecord student [];
     CheckPeriod check = new CheckPeriod ();
     
     int [] size = ArrayLibrary.countLines("Harsh.csv");//size of array is equal to the # of lines in the txt document
@@ -507,7 +507,7 @@ public class ArrayLibrary  {
       //System.out.println (course);//displays the course
       ArrayLibrary.createFile ("Student.xls","Kappa",0);//creastes the file 
       //ArrayLibrary.excelhah("Student.xls","Kappa",name,course,studentNum,0,1,period,"null");//calls the excel hah 
-    }
+    }*/
     
   }
 }
