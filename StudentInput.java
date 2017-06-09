@@ -136,6 +136,7 @@ public class StudentInput extends JFrame implements ActionListener {
     
     studentNumberInput = new JTextArea (1,1); //Initializing and positioning the txtFields
     studentNumberInput.setBounds (100,295,500,65);
+    studentNumberInput.setFont(new Font("Verdana", Font.PLAIN, 20));
     
     scroller = new JScrollPane(studentNumberInput); //Adding a scroller to the JTextArea and setting its location
     scroller.setBounds (100,275,500,65);
@@ -147,7 +148,10 @@ public class StudentInput extends JFrame implements ActionListener {
     semesterList.setLayoutOrientation(JList.HORIZONTAL_WRAP); //Making the list horizontal
     semesterList.setVisibleRowCount(1);
     semesterList.setFont(semesterList.getFont().deriveFont(20.0f));
-    semesterList.setBounds(100,430,50,30); //Setting the location for each list
+    semesterList.setBounds(100,430,54,27); //Setting the location for each list
+    semesterList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    DefaultListCellRenderer renderer = (DefaultListCellRenderer)semesterList.getCellRenderer();
+    renderer.setHorizontalAlignment(JLabel.CENTER);
     
     String dayData [] = {" 1 "," 2 "};
     dayList = new JList(dayData); //data has type Object[]
@@ -155,7 +159,10 @@ public class StudentInput extends JFrame implements ActionListener {
     dayList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
     dayList.setVisibleRowCount(1);
     dayList.setFont(dayList.getFont().deriveFont(20.0f));
-    dayList.setBounds(725,275,50,30);
+    dayList.setBounds(725,275,54,27);
+    dayList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    DefaultListCellRenderer renderer1 = (DefaultListCellRenderer)dayList.getCellRenderer();
+    renderer1.setHorizontalAlignment(JLabel.CENTER);
     
     String periodData [] = {" 1 "," 2 "," 3 "," 4 "," 5 "," All "};
     periodList = new JList(periodData); //data has type Object[]
@@ -163,7 +170,10 @@ public class StudentInput extends JFrame implements ActionListener {
     periodList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
     periodList.setVisibleRowCount(1);
     periodList.setFont(periodList.getFont().deriveFont(20.0f));
-    periodList.setBounds(100,555,220,30);
+    periodList.setBounds(100,555,240,27);
+    periodList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    DefaultListCellRenderer renderer2 = (DefaultListCellRenderer)periodList.getCellRenderer();
+    renderer2.setHorizontalAlignment(JLabel.CENTER);
     
     add (btnClear);
     add (btnOption);

@@ -1,4 +1,3 @@
-//Name: Jason and Sachi
 //Author: January 26 2016
 import java.io.FileNotFoundException;
 import java.io.BufferedReader;
@@ -69,8 +68,8 @@ public class ArrayLibrary  {
           //System.out.println("Comes here");
           if (j <= array.length) {
             //System.out.println(studentInfo);
-            //System.out.println("Comes here!");
-            array[j].breaker(studentInfo); //Breaks the lines into the corresponding info
+            //System.out.println(j + " " + array.length + studentInfo);
+            array[j].breaker(studentInfo); //Breaks the lines into the corresponding inf
             //System.out.println("Comes here!!");
             studentInfo = "";
             //System.out.println("Comes here!!!");

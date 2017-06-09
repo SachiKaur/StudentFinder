@@ -19,13 +19,15 @@ public class StudentRecord {
   
   private int numOfStudents,period,date,day,semester; //Declaring variables as private data
   private String studentNumber, name, studentName;
-  private String course [], array [], teacher []; //Creating a array
+  private String course [], array [], teacher [], courses [], teachers []; //Creating a array
   private final int NUMOFPERIODS = 5; //Making the number of periods FINAL
   private JTextArea text;
   
   public StudentRecord() { 
     course = new String [NUMOFPERIODS]; //Declaring a array
     teacher = new String [NUMOFPERIODS];
+    courses = new String [10];
+    teachers = new String [10];  
   }
   
   public void setNumberOfStudents (int num) //Setting the number of students that the user would like to see
@@ -90,28 +92,50 @@ public class StudentRecord {
     studentName  = str.substring(1,ArrayLibrary.nthOccurence(str,",",2) - 1);
     studentNumber = str.substring(ArrayLibrary.nthOccurence(str,",",2) + 1, ArrayLibrary.nthOccurence(str,",",2) + 7);
     //System.out.println(studentName + " " + studentNumber);
-    String s1 = (str.substring(ArrayLibrary.nthOccurence(str,",",10) + 1,ArrayLibrary.nthOccurence(str,",",18))).replaceAll("[^A-Za-z0-9- ]", " ");
-    String s2 = (str.substring(ArrayLibrary.nthOccurence(str,",",19) + 1,ArrayLibrary.nthOccurence(str,",",28))).replaceAll("[^A-Za-z0-9- ]", " ");
-    //System.out.println(s1);
-    String s = s1;
-    if (semester != 1){
-      s = s2;
+    //System.out.println(str);
+    String newStr = (str).replace(",,",",\",");
+    String [] newString = (newStr).split("\"");
+    //System.out.println(Arrays.toString(newString));
+
+    String [] s = Arrays.copyOfRange(newString,5,newString.length-1);
+    //System.out.println(studentNumber + " " + Arrays.toString(s));
+    /*for (int k = 0; k< s.length; k++){
+      System.out.println(s[k]);
     }
-    
-    String [] info = (s).split(" ");
+    System.out.println("new student ----------");*/
+
     int j = 0;
-    for (int i = 1; i < info.length; i++){
-      if (info[i].length() > 0){
-        course [j] =  info[i];
-        teacher [j] = info[i+1] + ", " + info[i+3];
-        i = i + 6;
+    Boolean period6 = false;
+    for (int i = 0; i < s.length; i++){
+      if (j != 5 || period6 == true) {
+        if (s[i].length() > 1){
+          //System.out.println (s[i]);
+          courses[j] = s[i].substring(0,6);
+          //System.out.println (courses[j]);
+          teachers [j] = s[i].substring(8);
+          //System.out.println (teachers[j]);
+          i = i + 1;
+        }
+        else {
+          courses [j] = "Lunch or Spare"; 
+          teachers [j] = "N/A";
+          //System.out.println (courses[j]);
+          //System.out.println (teachers[j]);
+        }
+        j++;
       }
       else {
-        course [j] = "Lunch or Spare"; 
-        teacher [j] = "N/A";
+        period6 = true;
       }
-      j++;
-    } 
+    }
+    //System.out.println("new student ----------");
+
+    course = Arrays.copyOfRange(courses,0,5);
+    teacher = Arrays.copyOfRange(teachers,0,5);
+    if (semester != 1) {
+      course = Arrays.copyOfRange(courses,5,10);
+      teacher = Arrays.copyOfRange(teachers,5,10);
+    }
   }
   
   public String getStudentNumber () //Returns the student number
@@ -127,8 +151,9 @@ public class StudentRecord {
   public static void main(String[] args) {  //Self testing
      
     StudentRecord student []; //Creating an array for student record
-    int [] size = ArrayLibrary.countLines("Harsh.csv"); //Determine how big the array should be depending on how many lines there are in 
+    int [] size = ArrayLibrary.countLines("TT-SummaryJune2017.csv"); //Determine how big the array should be depending on how many lines there are in 
     student = new StudentRecord[size[1]]; // Declaring the array
+    System.out.println(size[1] + " " + size[0]);
     
     for (int i = 0; i < student.length; i++){ //Initializing the array
       student[i] = new StudentRecord();
@@ -136,13 +161,13 @@ public class StudentRecord {
     String array []; //Creating an array
     String teacherArray [];
     student[0].setSemester (2); //Setting the semester to the 2nd semester
-    ArrayLibrary.uploadFile("Harsh.csv",student,size[0]);  //Reading and and storing the info into studentRecord
+    ArrayLibrary.uploadFile("TT-SummaryJune2017.csv",student,size[0]);  //Reading and and storing the info into studentRecord
     array = student[0].getCourses(); //Getting the all the courses for the 2nd semestter
     teacherArray = student[0].getTeachers();
 
     for (int i = 0; i < array.length; i++)
     {
-      //System.out.println(array [i] + " " + teacherArray [i]); //Showing the courses and teachers in 2nd semester
+      System.out.println(array [i] + " " + teacherArray [i]); //Showing the courses and teachers in 2nd semester
     }
     
     

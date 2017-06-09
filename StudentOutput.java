@@ -215,7 +215,7 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
         
         if (student[number].getPeriod() != 6) //If the user want a certain period 
         { 
-          System.out.print(pe);
+          //System.out.print(pe);
           ArrayLibrary.excelhah(ArrayLibrary.getFileName(),ArrayLibrary.getSheetName(),student[number].getStudentName(),course[pe],student[number].getStudentNumber(),x,y,pe + 1,file,teacher[pe]);
         }
         else 
@@ -226,7 +226,7 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
         if ((i % 2 == 0))
         {
           y  = y + 7; 
-          System.out.println (y + "," + i + "," + i%2);
+          //System.out.println (y + "," + i + "," + i%2);
         }
         
         
@@ -237,8 +237,8 @@ public class StudentOutput extends JFrame implements ActionListener{ //Implement
   public void showStudentInfo (int x)
   {
     number = ArrayLibrary.linearSearch (student, studentNum[x]);  //Looks for the student number in the txt file
-    System.out.println (x);
-    System.out.println (student[number].getStudentName());
+    //System.out.println (x);
+    //System.out.println (student[number].getStudentName());
     course = student[number].getCourses(); //Gets all the courses for that student
     teacher = student [number].getTeachers();
     lblStudentName.setText("Student Name: " + student[number].getStudentName()); //Shows this on the JFrame
